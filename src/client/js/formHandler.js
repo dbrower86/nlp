@@ -4,6 +4,8 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
 
+    document.getElementById('results').innerHTML = 'Please wait'
+
     fetch('http://localhost:8080/apiKey')
     .then(function(res) {
         return res.json()
@@ -17,9 +19,10 @@ function handleSubmit(event) {
     })
 }
 
-const getMood = async (targetURL, key)=>{
+const getMood = async (usrTxt, key)=>{
 
-    const str = `https://api.meaningcloud.com/sentiment-2.1?key=${key}&lang=en&url=${targetURL}`
+    const str = `https://api.meaningcloud.com/sentiment-2.1?key=${key}&lang=en&txt=${usrTxt}`
+    console.log(str)
       const res = await fetch(str)
     try {
       const data = await res.json();
@@ -35,4 +38,5 @@ function onBlur(event) {
 }
 
 export { handleSubmit }
+export { getMood } // for test
 export { onBlur }
