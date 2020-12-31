@@ -4,7 +4,7 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('name').value
 
-    document.getElementById('results').innerHTML = 'Please wait'
+    //document.getElementById('subjectivity').innerHTML = 'Please wait'
 
     fetch('http://localhost:8080/apiKey')
     .then(function(res) {
@@ -15,7 +15,11 @@ function handleSubmit(event) {
         return mood;
     })
     .then( function(mood) {
-        document.getElementById('results').innerHTML = mood.subjectivity
+      console.log(mood)
+        document.getElementById('subjectivity').innerHTML = mood.subjectivity
+        document.getElementById('agreement').innerHTML = mood.agreement
+        document.getElementById('confidence').innerHTML = mood.confidence
+        document.getElementById('irony').innerHTML = mood.irony
     })
 }
 
