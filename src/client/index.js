@@ -1,4 +1,4 @@
-import { checkForName } from './js/nameChecker'
+import { is_url } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
 import { onBlur } from './js/formHandler'
 
@@ -9,7 +9,7 @@ import './styles/footer.css'
 import './styles/header.css'
 
 export {
-    checkForName,
+    is_url,
     handleSubmit,
     onBlur
 }

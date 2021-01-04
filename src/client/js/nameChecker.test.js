@@ -1,14 +1,11 @@
-import { checkForName } from "./nameChecker"
+import { is_url } from "./nameChecker"
+global.alert = jest.fn()
 
-describe("nameChecker", () => {
-    test("Testing checkForName Found", () => {
-        global.alert = jest.fn()
-        checkForName('Kirk')
-        expect(global.alert).toHaveBeenCalledWith("Welcome, Captain!");
+describe("is_url", () => {
+    test("Testing valid URL", () => {
+        expect(is_url('www.google.com')).toBeTrue
     })
-    test("Testing checkForName Not Found", () => {
-        global.alert = jest.fn()
-        checkForName('Freddie');
-        expect(global.alert).not.toHaveBeenCalled();
+    test("Testing invalid URL", () => {
+        expect(is_url('bob@google.com')).toBeFalse
     })
 })
