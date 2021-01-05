@@ -2,10 +2,12 @@ var path = require('path')
 const express = require('express')
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
+const cors = require('cors')
 
 dotenv.config();
 const app = express()
 app.use(express.static('dist'))
+app.use(cors())
 
 console.log(__dirname)
 
